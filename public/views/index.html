@@ -2,10 +2,22 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Fun Things To Do!</title>
+    <!-- Styles-->
+    <link rel="stylesheet" href="/styles/style.css">
+    <!-- Vendor -->
+    <script src="/vendor/angular.min.js"></script>
+    <script src="/vendor/angular-route.min.js"></script>
+    <!-- APP -->
+    <script src="/scripts/client-app.js"></script>
+    <!-- CONTROLLERS -->
+    <script src="/scripts/controllers/home.controller.js"></script>
+    <script src="/scripts/controllers/add.controller.js"></script>
+    <!-- SERVICES -->
+    <script src="/scripts/services/fun-thing-factory.js"></script>
   </head>
-  <body>
-    <h1>Hello World</h1>
-    <p>I'm here.</p>
+  <body ng-app="app">
+    <h1>Fun Things To To!</h1>
+    <main ng-view></main>
   </body>
 </html>
