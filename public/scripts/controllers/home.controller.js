@@ -12,9 +12,21 @@ self.explainButton = function(){
 self.test = function() {
   $http({
     method: 'GET',
-    url: '/things',
+    url: '/random',
   }).then(function(response) {
     console.log("response: ", response);
+  })
+};
+
+self.addThing = function() {
+  $http({
+    method: 'POST',
+    url: '/things',
+    data: {
+      description: "Go skateaboarding"
+    }
+  }).then(function(response) {
+    console.log("Resposne: ", response);
   })
 }
 }])
