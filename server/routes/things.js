@@ -6,14 +6,16 @@ var thing = require('../models/thing');
 // Route: Add a thing
 router.post("/", function(req, res) {
     var thingToAdd = new thing(req.body);
-    thingToAdd.description = 'Test thing';
+    if (!thingToAdd.description) {
+        thingToAdd.description = 'Test thing';
+    }
     console.log('Adding new thing:', thingToAdd);
     thingToAdd.save(function(err) {
         if (err) {
             console.log('There was an error inserting new thing, ', err);
             res.sendStatus(500);
         } else {
-          console.log('update successful');
+            console.log('update successful');
             res.send(201);
         }
     });
