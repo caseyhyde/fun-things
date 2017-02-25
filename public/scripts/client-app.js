@@ -9,9 +9,9 @@
  * Main module of the application.
  */
 angular
-  .module('app', ['ngRoute'])
+  .module('app', ['ngRoute', 'ngMaterial'])
   .config(function ($routeProvider, $locationProvider) {
-    $locationProvider.html5Mode(false).hashPrefix('');
+  $locationProvider.html5Mode(false).hashPrefix('');
     $routeProvider
       .when('/', {
         templateUrl: 'views/templates/home.html',

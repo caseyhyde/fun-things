@@ -1,10 +1,11 @@
-<div ng-show='home.explain'>
+<div ng-show='home.explain.boolean'>
   <p>Looking for something fun to do?</p>
   <button ng-click='home.explainButton()'>Click Here</button>
 </div>
-<div ng-hide='home.explain'>
+<div ng-hide='home.explain.boolean'>
   <p>{{home.currentBlast.description}}</p>
-  <button ng-click="home.nextBlast()">What's next?</button>
+  <button ng-click="home.nextBlast()">What's Next?</button>
+  <a href='#/add'>Add A Fun Thing</a>
 </div>
 <button ng-click="home.test()">TEST</button>
 <button ng-click="home.addThing()">Add things</button>

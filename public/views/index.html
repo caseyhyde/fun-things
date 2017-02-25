@@ -6,8 +6,13 @@
     <!-- Styles-->
     <link rel="stylesheet" href="/styles/style.css">
     <!-- Vendor -->
+    <link rel="stylesheet" href="/vendor/angular-material.min.css">
     <script src="/vendor/angular.min.js"></script>
     <script src="/vendor/angular-route.min.js"></script>
+    <script src="/vendor/angular-animate.min.js"></script>
+    <script src="/vendor/angular-aria.min.js"></script>
+    <script src="/vendor/angular-material.min.js"></script>
+
     <!-- APP -->
     <script src="/scripts/client-app.js"></script>
     <!-- CONTROLLERS -->
@@ -17,7 +22,9 @@
     <script src="/scripts/services/fun-thing-factory.js"></script>
   </head>
   <body ng-app="app">
-    <h1>Fun Things To To!</h1>
+      <md-toolbar>
+        <h1>Fun Things To To!</h1>
+      </md-toolbar>    
     <main ng-view></main>
   </body>
 </html>
