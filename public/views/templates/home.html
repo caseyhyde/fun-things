@@ -1,1 +1,8 @@
-<h1>Home</h1>
+<div ng-show='home.explain'>
+  <p>Looking for something fun to do?</p>
+  <button ng-click='home.explainButton()'>Click Here</button>
+</div>
+<div ng-hide='home.explain'>
+  <p>{{home.currentBlast.description}}</p>
+  <button ng-click="home.nextBlast()">What's next?</button>
+</div>
