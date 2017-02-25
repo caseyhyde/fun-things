@@ -3,8 +3,6 @@ var router = express.Router();
 var thing = require('../../models/thing');
 // var day = require('../models/day');
 
-
-
 // Route: Add a thing
 router.post("/", function(req, res) {
     var thingToAdd = new thing(req.body);
