@@ -8,7 +8,7 @@ const LOCALPORT = 3000;
 const mongoConnection = require('./modules/mongo-connection');
 const portDecision = process.env.PORT || LOCALPORT;
 // const random = require('./routes/random');
-const things = require('./routes/middleware/things');
+const things = require('./routes/things');
 
 
 app.use(express.static('public'));
