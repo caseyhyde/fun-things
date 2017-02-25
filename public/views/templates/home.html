@@ -1,11 +1,13 @@
-<div ng-show='home.explain.boolean'>
-  <p>Looking for something fun to do?</p>
-  <button ng-click='home.explainButton()'>Click Here</button>
-</div>
-<div ng-hide='home.explain.boolean'>
-  <p>{{home.currentBlast.description}}</p>
-  <button ng-click="home.nextBlast()">What's Next?</button>
-  <a href='#/add'>Add A Fun Thing</a>
-</div>
-<button ng-click="home.test()">TEST</button>
-<button ng-click="home.addThing()">Add things</button>
+<md-card >
+  <md-card-content layout='column' layout-align='center center'>
+    <div ng-show='home.explain.boolean' layout='column'  layout-align='center center'>
+      <p>Looking for something fun to do?</p>
+      <button ng-click='home.explainButton()'>Click Here</button>
+    </div>
+    <div ng-hide='home.explain.boolean' layout='column' layout-align='center center'>
+      <p>{{home.currentBlast.description}}</p>
+      <button ng-click="home.nextBlast()">What's Next?</button>
+      <div layout-padding> <a href='#/add'>Add A Fun Thing</a></div>
+    </div>
+  </md-card-content>
+</md-card>
