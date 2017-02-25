@@ -3,9 +3,9 @@ const mongoose = require('mongoose');
 const connectionString = require('../config/database-config');
 
 var databaseURI = '';
-if(process.env.MONGODB_URI !== undefined) {
+if(process.env.DATABASE_URI !== undefined) {
     // use the string value of the environment variable
-    databaseURI = process.env.MONGODB_URI;
+    databaseURI = process.env.DATABASE_URI;
 } else {
     // use the local database server
     databaseURI = connectionString;

@@ -4,22 +4,23 @@ const router = express.Router();
 const request = require('request');
 const thing = require('../models/thing');
 
-// // Route: Get things
-// router.get('/', function(req, res, next) {
-//     console.log('Getting all things');
-//
-//     thing.find({}).exec(
-//         function(err, result) {
-//             if (err) {
-//                 console.log('Get ERR: ', err);
-//                 res.sendStatus(400);
-//             } else {
-//               req.result = result;
-//               next();
-//             }
-//
-//         });
-// }); // END: GET things route
+// Route: Get things
+router.get('/', function(req, res, next) {
+    console.log('Getting all things');
+
+    thing.find({}).exec(
+        function(err, result) {
+            if (err) {
+                console.log('Get ERR: ', err);
+                res.sendStatus(400);
+            } else {
+              req.result = result;
+              // res.send(result);
+              next();
+            }
+
+        });
+}); // END: GET things route
 
 router.get('/', function(req, res, next) {
     console.log('random api function');
