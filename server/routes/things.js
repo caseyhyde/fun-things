@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var thing = require('../../models/thing');
+var thing = require('../models/thing');
 // var day = require('../models/day');
 
 // Route: Add a thing

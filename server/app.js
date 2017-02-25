@@ -9,6 +9,7 @@ const mongoConnection = require('./modules/mongo-connection');
 const portDecision = process.env.PORT || LOCALPORT;
 // const random = require('./routes/random');
 const things = require('./routes/things');
+const random = require('./routes/random');
 
 
 app.use(express.static('public'));
@@ -18,6 +19,7 @@ app.get('/', function(req, res) {
 });
 
 // app.use('/')
-app.use('/things', things);
+app.get('/random', random);
+app.post('/things', things);
 
 app.listen(portDecision, () => console.log("Listening on port: ", portDecision));
