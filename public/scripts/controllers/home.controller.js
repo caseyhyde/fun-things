@@ -3,9 +3,10 @@ angular.module('app')
 const self = this;
 self.currentBlast = FunThings.currentBlast
 self.nextBlast = FunThings.nextBlast
-self.explain = true;
+self.explain = FunThings.explain;
 
 self.explainButton = function(){
-  self.explain = false;
+  FunThings.explain.boolean = false;
 }
+
 }])
