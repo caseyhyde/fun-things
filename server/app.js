@@ -18,8 +18,10 @@ app.get('/', function(req, res) {
   res.sendfile(path.join(__dirname, '../public/views/index.html'));
 });
 
+mongoConnection.connect();
+
 // app.use('/')
-app.get('/random', random);
-app.post('/things', things);
+app.use('/random', random);
+app.use('/things', things);
 
 app.listen(portDecision, () => console.log("Listening on port: ", portDecision));
