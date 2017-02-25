@@ -1,11 +1,15 @@
+/*jshint esversion: 6 */
 require('dotenv').config();
 const express = require('express');
 const app = express();
 const path = require('path');
 const bodyParser = require('body-parser');
 const LOCALPORT = 3000;
+const mongoConnection = require('./modules/mongo-connection');
+const portDecision = process.env.PORT || LOCALPORT;
+const random = require('./routes/random');
 const things = require('./routes/things');
-var portDecision = process.env.PORT || LOCALPORT;
+
 
 app.use(express.static('public'));
 app.use(bodyParser.json());
