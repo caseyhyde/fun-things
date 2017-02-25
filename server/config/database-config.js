@@ -1,1 +1,1 @@
-module.exports = process.env.DATBASE_URI;
+module.exports = process.env.DATABASE_URI;
