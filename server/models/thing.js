@@ -31,7 +31,7 @@ var thingSchema = new Schema({
 });
 
 // user model
-var Trip = mongoose.model('thing', thingSchema);
+var Thing = mongoose.model('thing', thingSchema);
 
 // Export model
 module.exports = Thing;

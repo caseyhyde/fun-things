@@ -2,7 +2,24 @@ const express = require('express');
 const router = express.Router();
 const request = require('request');
 
-var randomRequest = function(req, res, next) {
+// // Route: Get things
+// router.get('/', function(req, res, next) {
+//     console.log('Getting all things');
+//
+//     thing.find({}).exec(
+//         function(err, result) {
+//             if (err) {
+//                 console.log('Get ERR: ', err);
+//                 res.sendStatus(400);
+//             } else {
+//               req.result = result;
+//               next();
+//             }
+//
+//         });
+// }); // END: GET things route
+
+router.get('/', function(req, res, next) {
 
   var options = {
     url: 'https://api.random.org/json-rpc/1/invoke',
@@ -18,7 +35,7 @@ var randomRequest = function(req, res, next) {
         "apiKey": process.env.RANDOM_API_KEY,
         "n": 10,
         "min": 0,
-        "max": req.body.arrayLength,
+        "max": 100,
         "replacement": false
       },
       "id": 42
@@ -27,12 +44,17 @@ var randomRequest = function(req, res, next) {
 
   request.post(options, (error, response, body) => {
     if(!error && response.statusCode == 200) {
-      console.log(body);
+      console.log("Random array: ", body);
       req.randomArr = body;
-      // res.send(body.result.random);
-      next();
+      // next();
+      res.send(body);
     }
-  });
-};
+  });//end post to API
+
+)};//end GET route
+
+// router.get('/', function(req, res, next) {
+//
+// });//end GET route
 
 module.exports = randomRequest;

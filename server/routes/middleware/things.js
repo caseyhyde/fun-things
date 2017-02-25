@@ -1,22 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var thing = require('../models/thing');
-var day = require('../models/day');
+var thing = require('../../models/thing');
+// var day = require('../models/day');
 
-// Route: Get things
-router.get('/', function(req, res) {
-    console.log('Getting all things');
 
-    thing.find({}).exec(
-        function(err, things) {
-            if (err) {
-                console.log('Get ERR: ', err);
-            } else {
-                res.body.things = things;
-            }
-            next();
-        });
-}); // END: GET things route
 
 // Route: Add a thing
 router.post("/", function(req, res) {
