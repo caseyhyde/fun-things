@@ -9,26 +9,19 @@
  * Main module of the application.
  */
 angular
-  .module('gruntAngularApp', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch'
-  ])
+  .module('app', ['ngRoute'])
   .config(function ($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(false).hashPrefix('');
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+        templateUrl: 'views/templates/home.html',
+        controller: 'HomeController',
+        controllerAs: 'home'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+      .when('/add', {
+        templateUrl: 'views/templates/add.html',
+        controller: 'AddController',
+        controllerAs: 'add'
       })
       .otherwise({
         redirectTo: '/'

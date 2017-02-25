@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/caseyhyde/fun-things#readme",
   "dependencies": {
+    "angular-route": "^1.6.2",
     "body-parser": "^1.16.1",
     "dotenv": "^4.0.0",
     "express": "^4.14.1",
