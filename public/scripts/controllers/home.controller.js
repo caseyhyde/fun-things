@@ -3,30 +3,31 @@ angular.module('app')
 const self = this;
 self.currentBlast = FunThings.currentBlast
 self.nextBlast = FunThings.nextBlast
-self.explain = true;
+self.explain = FunThings.explain;
 
 self.explainButton = function(){
-  self.explain = false;
+  FunThings.explain.boolean = false;
 }
 
-self.test = function() {
-  $http({
-    method: 'GET',
-    url: '/random',
-  }).then(function(response) {
-    console.log("response: ", response);
-  })
-};
+// self.test = function() {
+//   $http({
+//     method: 'GET',
+//     url: '/random',
+//   }).then(function(response) {
+//     console.log("response: ", response);
+//   })
+// };
+//
+// self.addThing = function() {
+//   $http({
+//     method: 'POST',
+//     url: '/things',
+//     data: {
+//       description: "Go skateaboarding"
+//     }
+//   }).then(function(response) {
+//     console.log("Resposne: ", response);
+//   })
+// }
 
-self.addThing = function() {
-  $http({
-    method: 'POST',
-    url: '/things',
-    data: {
-      description: "Go skateaboarding"
-    }
-  }).then(function(response) {
-    console.log("Resposne: ", response);
-  })
-}
 }])

@@ -3,6 +3,7 @@ angular.module('app')
 
 function FunThings(){
   var index = 0;
+  console.log("index", index);
   var blasts = [
     {
       description: 'Bowling'
@@ -26,15 +27,23 @@ function FunThings(){
     // increment index until looping back to position 0
     index = ++index % blasts.length;
     this.currentBlast = blasts[index];
+    console.log("currentBlast", this.currentBlast);
   }
 //get the blasts
-  
+
 //add a blast
+  this.addBlast = function(){
+    
+  }
+//show fun things
+
+  this.explain = {
+    boolean: true
+  };
 
 }
 
 function createFactory() {
-  console.log(new FunThings());
 
   return new FunThings();
 }
