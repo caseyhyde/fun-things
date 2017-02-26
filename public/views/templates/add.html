@@ -3,10 +3,16 @@
     <h2>Add A Fun Thing To Do!</h2>
     <div class="">
       <input ng-model="add.Blast">
-      <button ng-click="add.addBlast(add.Blast)">Add</button>
+      <md-button class="md-primary md-raised" ng-click="add.addBlast(add.Blast)">Add</md-button>
     </div>
-    <div layout-padding="">
+    <!-- <div layout-padding="">
       <a ng-href='#/home'>Back</a>
+    </div> -->
+    <div class="float-button">
+      <md-button style="" ng-href="#/home" class="md-fab" aria-label="Back">
+          <md-icon md-svg-src="../assets/ic_arrow_back_white_24px.svg"></md-icon>
+      </md-button>
     </div>
+
   </md-card-content>
 </md-card>

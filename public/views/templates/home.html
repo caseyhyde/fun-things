@@ -1,13 +1,19 @@
 <md-card >
   <md-card-content layout='column' layout-align='center center'>
     <div ng-show='home.explain.boolean' layout='column'  layout-align='center center'>
-      <p>Looking for something fun to do?</p>
-      <button ng-click='home.explainButton()'>Click Here</button>
+      <p class="md-display-1">Looking for something fun to do?</p>
+      <md-button class="md-primary md-raised" ng-click='home.explainButton()'>Click Here</md-button>
     </div>
     <div ng-hide='home.explain.boolean' layout='column' layout-align='center center'>
-      <p>{{home.currentBlast.description}}</p>
-      <button ng-click="home.nextBlast()">What's Next?</button>
-      <div layout-padding> <a href='#/add'>Add A Fun Thing</a></div>
+      <p class="md-display-2">{{home.currentBlast.description}}</p>
+      <md-button class="md-primary md-raised" ng-click="home.nextBlast()">What's Next?</md-button>
+
+<div class="float-button">
+  <md-button style="" ng-href="#/add" class="md-fab" aria-label="Add Day">
+      <md-icon md-svg-src="../assets/ic_add_white_24px.svg"></md-icon>
+  </md-button>
+</div>
+      <!-- <div layout-padding> <a href='#/add'>Add A Fun Thing</a></div> -->
     </div>
   </md-card-content>
 </md-card>
