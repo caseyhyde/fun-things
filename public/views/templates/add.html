@@ -2,8 +2,10 @@
   <md-card-content layout='column' layout-align='center center'>
     <h2>Add A Fun Thing To Do!</h2>
     <div class="">
-      <input ng-model="add.blast">
-      <md-button class="md-primary md-raised" ng-click="add.addBlast(add.blast)">Add</md-button>
+      <form ng-submit="add.addBlast(add.blast)">
+        <input ng-model="add.blast">
+        <md-button type="submit" class="md-primary md-raised">Add</md-button>
+      </form>
     </div>
     <!-- <div layout-padding="">
       <a ng-href='#/home'>Back</a>
