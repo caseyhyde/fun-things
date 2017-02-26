@@ -1,7 +1,7 @@
 angular.module('app')
-    .factory('FunThings', ['$http', funThings]);
+    .factory('FunThings', ['$http', '$q', funThings]);
 
-function funThings($http) {
+function funThings($http, $q) {
 
     var index = 0;
     var blasts = [];
@@ -43,16 +43,24 @@ function funThings($http) {
 
     //add a blast
     function addBlast(data) {
-        $http({
+      return $q(function (resolve, reject) {
+        if(data.description !== '') {
+          $http({
             method: 'POST',
             url: '/things',
             data: data
-        }).then(function(response) {
-          blasts.push(data);
-        }).catch(function(err) {
-            console.log('POST thing error');
-        });
+          }).then(function(response) {
+            blasts.push(data);
+            resolve();
+          }).catch(function(err) {
+            reject('POST thing error');
+          });
+        } else {
+          reject('Blank entry not permitted');
+        }
+      });
     };
+
 
   return {
     current: current,
