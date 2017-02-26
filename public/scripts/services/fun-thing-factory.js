@@ -23,7 +23,6 @@ function funThings($http) {
         // increment index until looping back to position 0
         index = ++index % blasts.length;
         current.blast = blasts[index];
-        console.log("current.blast", current.blast);
     }
   
     //get the blasts
@@ -49,7 +48,7 @@ function funThings($http) {
             url: '/things',
             data: data
         }).then(function(response) {
-            blasts.push(data);
+          blasts.push(data);
         }).catch(function(err) {
             console.log('POST thing error');
         });
