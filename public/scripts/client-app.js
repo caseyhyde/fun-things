@@ -10,7 +10,7 @@
  */
 angular
   .module('app', ['ngRoute', 'ngMaterial'])
-  .config(function ($routeProvider, $locationProvider, $mdThemingProvider) {
+  .config(function ($routeProvider, $locationProvider, $mdThemingProvider, $logProvider) {
 
     // $mdThemingProvider.theme('default')
     //   .primaryPalette('red')
@@ -19,6 +19,8 @@ angular
     //   .dark();
 
     $locationProvider.html5Mode(false).hashPrefix('');
+
+    $logProvider.debugEnabled(false);
 
     $routeProvider
       .when('/', {
