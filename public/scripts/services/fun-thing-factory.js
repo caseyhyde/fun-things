@@ -1,26 +1,32 @@
 angular.module('app')
-    .factory('FunThings', ['$http', createFactory]);
+    .factory('FunThings', ['$http', funThings]);
 
-function FunThings($http) {
-    var self = this;
+function funThings($http) {
 
     var index = 0;
-    console.log("index", index);
     var blasts = [];
 
     //current blast
-    self.currentBlast = {};
+    var current= {
+      blast: null
+    };
+
+    //show fun things
+    var explain = {
+        boolean: true
+    };
+
+    getThings();
 
     //next blast
     function nextBlast() {
         // increment index until looping back to position 0
         index = ++index % blasts.length;
-        this.currentBlast = blasts[index];
-        console.log("currentBlast", this.currentBlast);
+        current.blast = blasts[index];
     }
-    this.nextBlast = nextBlast;
+  
     //get the blasts
-    this.getThings = function() {
+    function getThings() {
         console.log('getting things..');
         return $http({
             method: 'GET',
@@ -28,31 +34,32 @@ function FunThings($http) {
         }).then(function(response) {
             console.log("getThings() response: ", response);
             blasts = response.data;
-            self.currentBlast = blasts[index];
-            nextBlast();
+            current.blast = blasts[index];
+        })
+        .catch(function (err) {
+          console.log('GET things error:', err);
         });
     };
+
     //add a blast
-    this.addBlast = function(data) {
+    function addBlast(data) {
         $http({
             method: 'POST',
             url: '/things',
             data: data
         }).then(function(response) {
-            blasts.push(data);
+          blasts.push(data);
         }).catch(function(err) {
             console.log('POST thing error');
         });
     };
-    //show fun things
 
-    this.explain = {
-        boolean: true
-    };
-    this.getThings();
+  return {
+    current: current,
+    explain: explain,
+    nextBlast: nextBlast,
+    getThings: getThings,
+    addBlast: addBlast
+  };
 }
 
-function createFactory($http) {
-    var things = new FunThings($http);
-    return things;
-}

@@ -1,12 +1,13 @@
 angular.module('app')
-.controller('AddController', ['FunThings', function(FunThings){
+.controller('AddController', ['FunThings', '$location', function(FunThings, $location){
 const self = this;
 
-  self.Blast;
+  self.blast;
 
   self.addBlast = function(blast) {
     FunThings.addBlast({description: blast});
     self.Blast = '';
-  }
+    $location.path('/');
+  };
 
 }])
