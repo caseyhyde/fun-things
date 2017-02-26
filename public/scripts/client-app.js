@@ -10,8 +10,16 @@
  */
 angular
   .module('app', ['ngRoute', 'ngMaterial'])
-  .config(function ($routeProvider, $locationProvider) {
-  $locationProvider.html5Mode(false).hashPrefix('');
+  .config(function ($routeProvider, $locationProvider, $mdThemingProvider) {
+
+    // $mdThemingProvider.theme('default')
+    //   .primaryPalette('red')
+    //   .accentPalette('blue')
+    //   .warnPalette('yellow')
+    //   .dark();
+
+    $locationProvider.html5Mode(false).hashPrefix('');
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/templates/home.html',
