@@ -1,18 +1,14 @@
 angular.module('app')
-.controller('HomeController', ['FunThings', '$http', function(FunThings, $http){
-  console.log("hc running");
-  console.log(FunThings)
-const self = this;
-self.currentBlast = FunThings.currentBlast
-self.nextBlast = FunThings.nextBlast
-self.explain = FunThings.explain;
+  .controller('HomeController', ['FunThings', '$http', function(FunThings, $http){
+    console.log("hc running");
+    const self = this;
+    self.current = FunThings.current;
+    self.nextBlast = FunThings.nextBlast;
+    self.explain = FunThings.explain;
 
-self.explainButton = function(){
-  FunThings.getThings().then(function() {
-    self.currentBlast = FunThings.currentBlast;
-  })
-  FunThings.explain.boolean = false;
-}
+    self.explainButton = function(){
+      FunThings.explain.boolean = false;
+    }
 
 
-}])
+  }])
