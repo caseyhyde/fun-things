@@ -1,12 +1,24 @@
 <md-card>
-  <md-card-content layout='column' layout-align='center center'>
-    <h2>Add A Fun Thing To Do!</h2>
-    <div class="">
-      <input ng-model="add.Blast">
-      <button>Add</button>
-    </div>
-    <div layout-padding="">
+  <md-card-content layout="column" flex-gt-sm="50" flex-offset-gt-sm="25" layout-align="center">
+    <h2 layout layout-align="center" layout-padding class="md-headline">Add A Fun Thing To Do!</h2>
+      <form layout layout-align="center" layout-padding ng-submit="add.addBlast(add.blast)">
+        <div layout-gt-xs="row" flex>
+          <md-input-container flex class="md-block md-title">
+            <input type="text" ng-model="add.blast" focus-on="addDescription" placeholder="Description" required>
+          </md-input-container>
+          <div layout-xs layout-align="end">
+            <md-button type="submit" class="md-primary md-button md-raised">Add</md-button>
+          </div>
+        </div>
+      </form>
+    <!-- <div layout-padding="">
       <a ng-href='#/home'>Back</a>
+    </div> -->
+    <div class="float-button">
+      <md-button style="" ng-href="#/home" class="md-fab" aria-label="Back">
+          <md-icon md-svg-src="../assets/ic_arrow_back_white_24px.svg"></md-icon>
+      </md-button>
     </div>
+
   </md-card-content>
 </md-card>
