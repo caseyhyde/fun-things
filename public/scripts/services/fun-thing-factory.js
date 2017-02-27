@@ -1,49 +1,75 @@
 angular.module('app')
-.factory('FunThings', [createFactory])
+  .factory('FunThings', ['$http', '$q', '$log', funThings]);
 
-function FunThings(){
+function funThings($http, $q, $log) {
+
   var index = 0;
-  console.log("index", index);
-  var blasts = [
-    {
-      description: 'Bowling'
-    },
-    {
-      description: 'Ice Skating'
-    },
-    {
-      description: 'Drugs'
-    },
-    {
-      description: 'Opposite-handed Bowling'
-    },
-  ];
+  var blasts = [];
 
-//current blast
-  this.currentBlast = blasts[index]
+  //current blast
+  var current= {
+    blast: null
+  };
 
-//next blast
-  this.nextBlast = function(){
-    // increment index until looping back to position 0
-    index = ++index % blasts.length;
-    this.currentBlast = blasts[index];
-    console.log("currentBlast", this.currentBlast);
-  }
-//get the blasts
-
-//add a blast
-  this.addBlast = function(){
-    
-  }
-//show fun things
-
-  this.explain = {
+  //show fun things
+  var explain = {
     boolean: true
   };
 
+  getThings();
+
+  //next blast
+  function nextBlast() {
+    // increment index until looping back to position 0
+    index = ++index % blasts.length;
+    current.blast = blasts[index];
+  }
+
+  //get the blasts
+  function getThings() {
+    $log.debug('getting things..');
+    return $http({
+      method: 'GET',
+      url: '/random'
+    })
+      .then(setBlasts)
+      .catch( function handleError(err) {
+        console.log(err.data);
+      });
+  }
+
+  function setBlasts(response) {
+    $log.debug("getThings() response: ", response);
+    blasts = response.data;
+    current.blast = blasts[index];
+  }
+
+  //add a blast
+  function addBlast(data) {
+    return $http({
+      method: 'POST',
+      url: '/things',
+      data: data
+    })
+      .then(pushNewBlast)
+      .catch(sendError);
+  };
+
+  function pushNewBlast(response) {
+    return blasts.push(response.config.data);
+  }
+
+
+  function sendError(err) {
+    return $q.reject('POST thing error');
+  }
+
+  return {
+    current: current,
+    explain: explain,
+    nextBlast: nextBlast,
+    getThings: getThings,
+    addBlast: addBlast
+  };
 }
 
-function createFactory() {
-
-  return new FunThings();
-}
