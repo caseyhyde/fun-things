@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 angular
-  .module('app', ['ngRoute', 'ngMaterial'])
+  .module('app', ['ngRoute', 'ngMaterial', 'ngTouch', 'ngSwippy'])
   .config(function ($routeProvider, $locationProvider, $mdThemingProvider, $logProvider) {
 
     // $mdThemingProvider.theme('default')
@@ -20,7 +20,7 @@ angular
 
     $locationProvider.html5Mode(false).hashPrefix('');
 
-    $logProvider.debugEnabled(false);
+    $logProvider.debugEnabled(true);
 
     $routeProvider
       .when('/', {

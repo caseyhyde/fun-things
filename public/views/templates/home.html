@@ -1,19 +1,27 @@
 <md-card >
-  <md-card-content layout='column' layout-align='center center'>
+  <md-card-content >
     <div ng-show='home.explain.boolean' layout='column'  layout-align='center center'>
       <p class="md-display-1">Looking for something fun to do?</p>
       <md-button class="md-primary md-raised" ng-click='home.explainButton()'>Click Here</md-button>
     </div>
-    <div ng-hide='home.explain.boolean' layout='column' layout-align='center center'>
-      <p class="md-display-2">{{home.current.blast.description}}</p>
-      <md-button class="md-primary md-raised" ng-click="home.nextBlast()">What's Next?</md-button>
+    <div ng-hide='home.explain.boolean' layout='column' layout-align='start center'>
 
-      <div class="float-button">
-        <md-button style="" ng-href="#/add" class="md-fab" aria-label="Add Day">
-          <md-icon md-svg-src="../assets/ic_add_white_24px.svg"></md-icon>
-        </md-button>
-      </div>
+            <ng-swippy collection='home.blasts.theBlasts' width='{{home.size.width}}px' height='{{home.size.height}}px' item-click='home.myCustomFunction' data='home.showinfo' collection-empty='home.swipeend' swipe-left='home.swipeLeft'  swipe-right='home.swipeRight' cards-number='2' label-ok='Cool' label-negative='Not Cool'>
+
+            </ng-swippy>
+
+            <p class="md-display-2">{{home.current.blast.description}}</p>
+            <p class="md-display-2">{{home.blasts.theBlasts}}</p>
+            <!-- <p class="md-display-2">{{home.itemsCollection}}</p> -->
+
+
+      <md-button class="md-primary md-raised" ng-click="home.nextBlast()">What's Next?</md-button>
       <!-- <div layout-padding> <a href='#/add'>Add A Fun Thing</a></div> -->
+    </div>
+    <div ng-hide='home.explain.boolean' layout="row" layout-align="end" >
+      <md-button layout='row' layout-align='end end' style="" ng-href="#/add" class="md-fab" aria-label="Add Day">
+        <md-icon md-svg-src="../assets/ic_add_white_24px.svg"></md-icon>
+      </md-button>
     </div>
   </md-card-content>
 </md-card>

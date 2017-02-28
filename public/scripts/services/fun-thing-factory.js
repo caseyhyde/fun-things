@@ -5,7 +5,9 @@ function funThings($http, $q, $log) {
 
   var index = 0;
   var blasts = [];
-
+  var allBlasts = {
+    theBlasts: blasts
+  }
   //current blast
   var current= {
     blast: null
@@ -42,6 +44,8 @@ function funThings($http, $q, $log) {
     $log.debug("getThings() response: ", response);
     blasts = response.data;
     current.blast = blasts[index];
+    allBlasts.theBlasts = response.data;
+
   }
 
   //add a blast
@@ -69,7 +73,7 @@ function funThings($http, $q, $log) {
     explain: explain,
     nextBlast: nextBlast,
     getThings: getThings,
-    addBlast: addBlast
+    addBlast: addBlast,
+    allBlasts: allBlasts
   };
 }
-
