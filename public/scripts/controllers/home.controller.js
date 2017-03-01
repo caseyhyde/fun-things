@@ -39,8 +39,8 @@ angular.module('app')
     // });
 
     self.size = {
-			width: 300,
-			height: 200
+			width: '100%',
+			height: '100%'
 		};
 
     self.showinfo = false;

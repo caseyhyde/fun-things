@@ -1,18 +1,15 @@
-<div ng-show='home.explain.boolean' layout='column'  layout-align='center center'>
-  <p class="md-display-1">Looking for something fun to do?</p>
-  <md-button class="md-primary md-raised" ng-click='home.explainButton()'>Click Here</md-button>
-</div>
-<div ng-hide='home.explain.boolean' ng-if='home.isLoaded' layout='column' layout-align='start center'>
-        <ng-swippy collection='blasts.theBlasts' width='{{home.size.width}}px' height='{{home.size.height}}px' item-click='home.myCustomFunction' data='home.showinfo' collection-empty='home.swipeend' swipe-left='home.swipeLeft'  swipe-right='home.swipeRight' cards-number='2' label-ok='Cool' label-negative='Not Cool'>
-        </ng-swippy>
-        <!-- <p class="md-display-2">{{home.current.blast.description}}</p> -->
-        <!-- <p class="md-display-2">{{home.allBlasts.theBlasts}}</p> -->
-        <!-- <p class="md-display-2">{{home.blasts}}</p> -->
-  <!-- <md-button class="md-primary md-raised" ng-click="home.nextBlast()">What's Next?</md-button> -->
-  <!-- <div layout-padding> <a href='#/add'>Add A Fun Thing</a></div> -->
-</div>
-<div ng-hide='home.explain.boolean' layout="row" layout-align="center" layout-padding>
-  <md-button layout='row' layout-align='end end' style="" ng-href="#/add" class="md-fab" aria-label="Add Day" >
-    <md-icon md-svg-src="../assets/ic_add_white_24px.svg"></md-icon>
-  </md-button>
+<div layout="column" flex-sm="100" flex-xs='100'>
+  <div ng-show='home.explain.boolean' layout='column'  layout-align='center center' flex-sm="100" flex-xs='100'>
+    <p class="md-display-1">Looking for something fun to do?</p>
+    <md-button class="md-primary md-raised" ng-click='home.explainButton()'>Click Here</md-button>
+  </div>
+  <div ng-hide='home.explain.boolean' ng-if='home.isLoaded' layout='column' layout-align='start center'>
+    <ng-swippy collection='blasts.theBlasts' width='{{home.size.width}}px' height='{{home.size.height}}px' item-click='home.myCustomFunction' data='home.showinfo' collection-empty='home.swipeend' swipe-left='home.swipeLeft'  swipe-right='home.swipeRight' cards-number='2' label-ok='Cool' label-negative='Not Cool'>
+    </ng-swippy>
+  </div>
+  <div ng-hide='home.explain.boolean' layout="row" layout-align="center" layout-padding>
+    <md-button layout='row' layout-align='end end' style="" ng-href="#/add" class="md-fab" aria-label="Add Day" >
+      <md-icon md-svg-src="../assets/ic_add_white_24px.svg"></md-icon>
+    </md-button>
+  </div>
 </div>
