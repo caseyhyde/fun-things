@@ -6,7 +6,7 @@ function funThings($http, $q, $log) {
   var index = 0;
   var blasts = [];
   var allBlasts = {
-    theBlasts: blasts
+    theBlasts: null
   }
   //current blast
   var current= {
@@ -29,7 +29,7 @@ function funThings($http, $q, $log) {
 
   //get the blasts
   function getThings() {
-    $log.debug('getting things..');
+    console.log('getting things..');
     return $http({
       method: 'GET',
       url: '/random'
@@ -41,10 +41,11 @@ function funThings($http, $q, $log) {
   }
 
   function setBlasts(response) {
-    $log.debug("getThings() response: ", response);
+    console.log("getThings() response: ", response);
     blasts = response.data;
     current.blast = blasts[index];
-    allBlasts.theBlasts = response.data;
+    allBlasts.theBlasts = response.data
+    return allBlasts
 
   }
 
@@ -74,6 +75,11 @@ function funThings($http, $q, $log) {
     nextBlast: nextBlast,
     getThings: getThings,
     addBlast: addBlast,
-    allBlasts: allBlasts
-  };
+    allBlasts: allBlasts,
+    getThings: function(){
+      return getThings();
+    }
+  }
+
+  ;
 }

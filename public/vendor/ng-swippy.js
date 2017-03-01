@@ -99,15 +99,16 @@ angular.module('ngSwippy', ['ngTouch'])
 		return {
 			restrict: 'E',
 			replace: true,
+			trasclude: true,
 			template: 	'<div class="ng-swippy noselect" style="width: {{width}}; height: {{height}}">'+
-							'<div person="person" swipe-directive="swipe-directive" ng-repeat="person in peopleToShow" class="content-wrapper swipable-card">' +
-  								'<div class="card">' +
-    								'<div no-repeat 50% 15%" class="photo-item">{{person.thumbnail}}</div>' +
-										'<div no-repeat 50% 15%" class="photo-item">{{person.description}}</div>' +
-										'<p>{{person}}</p>'+
+							'<md-card person="person" swipe-directive="swipe-directive" ng-repeat="person in peopleToShow" class="content-wrapper swipable-card">' +
+  								'<md-card-content>' +
+    								// '<div no-repeat 50% 15%" class="photo-item">{{person.thumbnail}}</div>' +
+										'<div no-repeat 50% 15%" class=>{{person.description}}</div>' +
+										// '<p>{{person}}</p>'+
     								'<div class="know-label">{{labelOk ? labelOk : "YES"}}</div>' +
     								'<div class="dontknow-label">{{labelNegative ? labelNegative : "NO"}}</div>' +
-  								'</div>' +
+  								'</md-card-content>' +
 								'<div class="progress-stats" ng-if="data">' +
 									'<div class="card-shown">' +
 							    	'<div class="card-shown-text">{{person.title}}</div>' +
@@ -116,7 +117,7 @@ angular.module('ngSwippy', ['ngTouch'])
 								  '<div class="card-number">{{collection.length - (collection.indexOf(person))}}/{{collection.length}}&nbsp;'+
 								  '</div>' +
 								'</div>' +
-							'</div>' +
+							'</md-card>' +
 						'</div>',
 
 			scope: {

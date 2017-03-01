@@ -1,9 +1,11 @@
 angular.module('app')
-  .controller('HomeController', ['FunThings', '$http', '$timeout', function(FunThings, $http, $timeout){
+  .controller('HomeController', ['FunThings', '$http', '$timeout', '$scope', function(FunThings, $http, $timeout, $scope){
     const self = this;
+    self.isLoaded = false;
     self.itemsCollection =
     [{
 			thumbnail: '../../assets/me.jpg',
+      description: 'faaab',
 			title: 'Matt Smith',
 			subtitle: 'matt@gmail.com'
 		},{
@@ -25,8 +27,16 @@ angular.module('app')
 		}, {
 			thumbnail: 'http://i.imgur.com/IvGr1XY.jpg',
 			title: 'David Tennant is a great boi and i wnat to see what he does if noe one ssa',
+      description: 'faaab',
 			subtitle: 'david@gmail.com'
 		}, ];
+    console.log("itemsCollection", self.itemsCollection);
+
+    // FunThings.getThings().then(function(response){
+    //   console.log(response);
+    //   self.blasts = response;
+    //
+    // });
 
     self.size = {
 			width: 300,
@@ -59,11 +69,23 @@ angular.module('app')
 			});
 
 		};
+    $scope.blasts = FunThings.allBlasts;
 
+    $scope.$watchCollection(
+      function() {
+        return $scope.blasts;
+      },
+        function(newBlasts){
+        console.log("watch collection", newBlasts);
+        if (newBlasts.theBlasts.length) {
+          self.isLoaded = true;
+        }
+      }
+    )
     self.current = FunThings.current;
     console.log(self.current);
     self.nextBlast = FunThings.nextBlast;
-    self.blasts = FunThings.allBlasts;
+
     console.log(self.blasts);
     self.explain = FunThings.explain;
 
