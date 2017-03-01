@@ -1,5 +1,37 @@
-.float-button {
-  position: fixed;
-  right: 10px;
-  bottom: 50px;
+@import url('https://fonts.googleapis.com/css?family=Londrina+Solid');
+body{
+  background-color: rgb(232, 237, 237);
+}
+md-toolbar{
+  font-family: 'Londrina Solid', cursive;
+  font-size: 32px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
  }
+.cardDescription{
+  text-align: center;
+}
+md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar){
+  background-color: inherit;;
+}
+md-toolbar:not(.md-menu-toolbar){
+  color: rgb(241, 221, 46);
+}
+.ng-swippy{
+  height: 500px;
+	width: 500px;
+}
+@media screen and (min-width: 961px) {
+
+}
+@media screen and (max-width: 960px) and (min-width: 601px)  {
+  .ng-swippy{
+    height: 200px;
+  	width: 500px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .ng-swippy{
+    height: 450px;
+  	width: 300px;
+  }
+}

@@ -49,10 +49,10 @@ router.get('/', function(req, res, next) {
 
     request.post(options, (error, response, body) => {
         if (!error && response.statusCode == 200) {
-            console.log("Random array: ", body.result.random.data);
+            //console.log("Random array: ", body.result.random.data);
             req.randomArr = body.result.random.data;
             var newArr = shuffle(req);
-            console.log("Shuffled array: ", newArr);
+            //console.log("Shuffled array: ", newArr);
             // next();
             res.send(newArr);
         } else {
